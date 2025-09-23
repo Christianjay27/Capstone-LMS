@@ -1,40 +1,45 @@
 {% extends 'registration/registration_base.html' %}
 {% load i18n %}
-{% block title %}{% trans 'Dj Learning Management System - Login' %}{% endblock title %}
+{% block title %}{% trans 'College LMS - Login' %}{% endblock title %}
 {% load crispy_forms_tags %}
-{% block content %}
 
-<div class="col-md-4 mx-auto mt-5">
-  <div class="card">
-    <div class="form-title">
-      <i class="fas fa-lock me-2"></i>
-      {% trans 'Sign in' %}
-    </div>
-    <div class="card-body">
-        <form action="" method="POST" id="login-form">{% csrf_token %}
-          <div class="form-group mb-3">
-              <label class="mb-2" for="username_id"><i class="fas fa-address-card me-2"></i>{% trans 'ID Number' %}</label>
-              <input type="text" name="username" id="username_id" class="form-control" required>
-              <div id="message-wrapper"></div>
-          </div>
-          <div class="form-group mb-3">
-              <label class="mb-2" for="password_id"><i class="fas fa-key me-2"></i>{% trans 'Password' %}</label>
-              <input type="password" name="password" id="password_id" class="form-control" required>
-          </div>
-          {% if form.errors %}
-                <span class="text-danger"><i class="fas fa-exclamation-circle"></i> {% trans 'Invalid ID & Password.' %}</span><br>
-          {% endif %}
-      
-          <button type="submit" class="btn btn-primary" id="login-btn"><i class="fas fa-sign-in-alt"></i><small>{% trans 'SIGN IN' %}</small></button>
-        </form>
-        <br>
-        <div class="login-bottom">
-          <a href="{% url 'password_reset' %}" class="link">{% trans 'Forgot password ?' %}</a>
+{% block sidebar %}{% endblock %}
+{% block maincontent %}
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="login-icon">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1 class="login-title">SKWELIFY</h1>
         </div>
-      </div>
-  </div>
+
+        <form action="" method="POST" id="login-form">{% csrf_token %}
+            <div class="form-group mb-4">
+                <input type="text" name="username" id="username_id" class="form-control login-input" placeholder="{% trans 'Enter your ID Number' %}" required>
+                <div id="message-wrapper"></div>
+            </div>
+            <div class="form-group mb-4">
+                <input type="password" name="password" id="password_id" class="form-control login-input" placeholder="{% trans 'Enter your Password' %}" required>
+            </div>
+
+            {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    <i class="fas fa-exclamation-circle"></i> {% trans 'Invalid ID & Password.' %}
+                </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary login-btn" id="login-btn">
+                <i class="fas fa-sign-in-alt"></i> {% trans 'SIGN IN' %}
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <a href="{% url 'password_reset' %}" class="forgot-password-link">{% trans 'Forgot password?' %}</a>
+        </div>
+    </div>
 </div>
-{% endblock content %}
+{% endblock maincontent %}
 
 {% block js %}
 

@@ -5,7 +5,34 @@ function toggleSidebar() {
   document.getElementById("side-nav").classList.toggle("toggle-active");
   document.getElementById("main").classList.toggle("toggle-active");
   document.getElementById("top-navbar").classList.toggle("toggle-active");
-  document.querySelector(".manage-wrap").classList.toggle("toggle-active");
+
+  // Toggle manage-wrap if it exists (it may not be present on all pages)
+  const manageWrap = document.querySelector(".manage-wrap");
+  if (manageWrap) {
+    manageWrap.classList.toggle("toggle-active");
+  }
+
+  // Toggle icons between hamburger and close
+  const sidebarToggleIcon = document.querySelector("#side-nav .toggle-btn i");
+  const navbarToggleIcon = document.querySelector("#top-navbar .toggle-btn i");
+
+  if (document.getElementById("side-nav").classList.contains("toggle-active")) {
+    // Sidebar is open, show close icons
+    if (sidebarToggleIcon) {
+      sidebarToggleIcon.className = "fas fa-times";
+    }
+    if (navbarToggleIcon) {
+      navbarToggleIcon.className = "fas fa-times";
+    }
+  } else {
+    // Sidebar is closed, show hamburger icons
+    if (sidebarToggleIcon) {
+      sidebarToggleIcon.className = "fas fa-bars";
+    }
+    if (navbarToggleIcon) {
+      navbarToggleIcon.className = "fas fa-bars";
+    }
+  }
 }
 
 // #################################
