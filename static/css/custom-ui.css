@@ -1,0 +1,360 @@
+/* Custom UI styles to match the provided design */
+
+:root {
+  --sidebar-bg: #0d47a1;
+  --sidebar-text: #ffffff;
+  --sidebar-active: #1565c0;
+  --navbar-bg: #0d47a1;
+  --navbar-text: #ffffff;
+  --search-bg: #ffffff;
+  --search-text: #333333;
+  --search-placeholder: #666666;
+  --main-bg: #ffffff;
+  --card-bg: #ffffff;
+  --sidebar-title: #ffffff;
+  --sidebar-secondary: rgba(255, 255, 255, 0.7);
+  --news-badge-bg: #1565c0;
+  --events-badge-bg: #4a148c;
+}
+
+/* Main layout adjustments */
+body {
+  background-color: var(--main-bg);
+  font-family: "Rubik", sans-serif;
+}
+
+/* Sidebar styling */
+/* Main layout */
+body {
+  background-color: var(--main-bg);
+}
+
+#main-content {
+  background-color: var(--main-bg);
+}
+
+/* Sidebar styling */
+#side-nav {
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+#side-nav .top-side {
+  background: var(--sidebar-bg);
+  box-shadow: none;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+#side-nav .top-side p {
+  color: var(--sidebar-text);
+}
+
+#side-nav .top-side mark {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--sidebar-text);
+  border-radius: 4px;
+}
+
+#side-nav ul {
+  margin-top: 1rem;
+}
+
+#side-nav ul li a {
+  color: var(--sidebar-text);
+  padding: 0.8rem 1.5rem;
+  margin: 0.2rem 0;
+  border-radius: 0;
+  font-weight: 400;
+}
+
+#side-nav ul li a:hover {
+  color: var(--sidebar-text);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#side-nav ul li.active a {
+  background: var(--sidebar-active);
+  color: var(--sidebar-text);
+  border-radius: 0;
+  font-weight: 500;
+}
+
+#side-nav i {
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix the "Others" text in sidebar */
+#side-nav p.text-secondary,
+#side-nav p.ms-3.text-secondary {
+  color: var(--sidebar-secondary) !important;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+#side-nav footer {
+  color: var(--sidebar-text);
+}
+
+#side-nav footer a {
+  color: var(--sidebar-text);
+}
+
+/* Navbar styling */
+#top-navbar {
+  background: var(--navbar-bg);
+  color: var(--navbar-text);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0.75rem 1rem;
+  left: 300px;
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+#top-navbar .nav-wrapper .toggle-btn {
+  color: var(--navbar-text);
+}
+
+#top-navbar .nav-wrapper .toggle-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--navbar-text);
+}
+
+/* Search bar styling */
+#primary-search {
+  background-color: var(--search-bg);
+  color: var(--search-text);
+  border: none;
+  border-radius: 4px 0 0 4px;
+  padding: 0.5rem 1rem;
+  height: 40px;
+  width: 100%;
+}
+
+.form-header {
+  display: flex;
+  flex: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-header button {
+  border-radius: 0 4px 4px 0;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+  border: none;
+  color: #333;
+}
+
+.form-header button:hover {
+  background-color: #e9ecef;
+}
+
+#primary-search::placeholder {
+  color: var(--search-placeholder);
+}
+
+/* Icon styling */
+.fas, .fa {
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Override the icon styling in the sidebar */
+#side-nav .fas,
+#side-nav .fa {
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content area styling */
+#main-content {
+  padding: 1.5rem;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+/* News & Events section styling */
+.card-header-ne {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* News & Events styling */
+.news, .events {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.news {
+  background-color: var(--news-badge-bg) !important;
+}
+
+.events {
+  background-color: var(--events-badge-bg) !important;
+}
+
+/* News & Events heading */
+.news-events-heading {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Avatar styling */
+.avatar {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Make sure the Skwelify logo is properly sized and styled */
+#side-nav .top-side img {
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Footer styling in sidebar */
+#side-nav .card-footer {
+  background-color: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 2rem;
+  color: var(--sidebar-text);
+}
+
+/* Main content area */
+#main {
+  padding-left: 300px;
+  padding-top: 65px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Fix the college logo display */
+.card img.college-logo {
+  max-width: 60px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+/* Fix the news item title */
+.news-item-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Fix the timestamp display */
+.news-timestamp {
+  color: #6c757d;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+
+/* Fix the user avatar in navbar */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.dropdown .avatar {
+  margin-left: 10px;
+}
+
+/* Fix the search bar width - already defined above */
+
+/* News & Events specific heading */
+h1.news-events-title,
+h2.news-events-title,
+h3.news-events-title {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Fix alignment of content */
+.container-fluid {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Fix the alignment of the toggle button */
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--navbar-text);
+}
+
+/* Fix dropdown menu */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Footer styling in sidebar - avoid duplicate */
+
+#side-nav .card-footer p,
+#side-nav .card-footer a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Language selector */
+#side-nav #lang-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--sidebar-text);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Adjust the "Others" text in sidebar */
+#side-nav p.text-secondary {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
