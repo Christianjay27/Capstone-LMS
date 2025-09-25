@@ -7,7 +7,17 @@
 }
 
 :root {
-    --primary: #f8d270
+    --primary: #4a90e2;
+    --navbar-bg: #4a90e2;
+    --navbar-bg-gradient: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    --sidebar-bg: #2c5aa0;
+    --sidebar-text: #ffffff;
+    --sidebar-hover: #1e3c72;
+    --sidebar-active: #4a90e2;
+    --search-bg: #ffffff;
+    --search-border: #e1e8ed;
+    --search-focus: #4a90e2;
+    --content-bg: #f8f9fa;
 }
 
 *,
@@ -149,7 +159,7 @@ video {
     left: 300px;
     -webkit-margin-start: -10px;
     z-index: 90;
-    background: #f5f5f5;
+    background: var(--navbar-bg-gradient);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .1);
     transition: .3s
 }
@@ -335,24 +345,64 @@ video {
     z-index: 100;
     overflow-y: auto;
     resize: horizontal;
-    background-color: #fff;
+    background: var(--sidebar-bg);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .16), 0px 2px 10px 0px rgba(0, 0, 0, .12);
     transition: .3s
 }
 
 #side-nav i {
-    margin-right: 8px
+    margin-right: 12px;
+    color: var(--sidebar-text);
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border-radius: 0
 }
 
 #side-nav footer {
-    margin-top: 4rem
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, .1);
+    color: rgba(255, 255, 255, .7)
+}
+
+#side-nav footer p {
+    color: rgba(255, 255, 255, .7);
+    font-size: 12px
+}
+
+#side-nav footer a {
+    color: rgba(255, 255, 255, .8)
+}
+
+#side-nav footer a:hover {
+    color: #fff
+}
+
+#side-nav footer select {
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px
+}
+
+#side-nav footer select option {
+    background: var(--sidebar-bg);
+    color: #fff
 }
 
 #side-nav .top-side {
-    background: #f5f5f5;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .1);
-    margin-bottom: 10px;
-    padding: .5rem 2rem
+    background: var(--sidebar-bg);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    margin-bottom: 0;
+    padding: 2rem 1.5rem;
+    text-align: center
 }
 
 #side-nav .top-side .desktop-hide {
@@ -361,38 +411,110 @@ video {
 
 #side-nav .top-side .desktop-hide .toggle-btn {
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    background-color: #fff;
-    color: #f2f2f2;
-    padding: 0 1rem;
-    border-radius: 2px;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(255, 255, 255, .1);
+    color: var(--sidebar-text);
+    padding: .5rem;
+    border-radius: 4px;
     cursor: pointer;
     margin-left: auto;
-    transition: .5s
+    transition: .3s;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10
 }
 
 #side-nav .top-side .desktop-hide .toggle-btn i {
-    color: #999;
+    color: var(--sidebar-text);
     margin: 0 auto
 }
 
 #side-nav .top-side .desktop-hide .toggle-btn i:hover {
-    color: #666;
+    color: #fff;
     transition: .2s
 }
 
-#side-nav .top-side .logo img {
-    width: 90%
+#side-nav .top-side .desktop-hide .toggle-btn:hover {
+    background-color: rgba(255, 255, 255, .2)
+}
+
+#side-nav .top-side a {
+    display: inline-block;
+    margin-bottom: 1rem
+}
+
+#side-nav .top-side .brand-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff !important;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 1rem
+}
+
+#side-nav .top-side .brand-link:hover {
+    color: #fff !important;
+    text-decoration: none
+}
+
+#side-nav .top-side .brand-link i {
+    font-size: 28px;
+    margin-right: 12px;
+    color: #fff !important;
+    background: none !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important
+}
+
+#side-nav .top-side .brand-text {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff !important
+}
+
+#side-nav .top-side img {
+    max-width: 180px;
+    height: auto;
+    filter: brightness(0) invert(1)
+}
+
+#side-nav .top-side p {
+    color: rgba(255, 255, 255, .8);
+    font-size: 12px;
+    margin: 0
+}
+
+#side-nav .top-side p mark {
+    background: rgba(255, 255, 255, .2) !important;
+    color: #fff !important;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500
+}
+
+#side-nav .main-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column
 }
 
 #side-nav ul {
-    padding: 0
+    padding: 1rem 0;
+    margin: 0;
+    flex: 1
 }
 
 #side-nav ul li {
-    list-style: none
+    list-style: none;
+    margin: 0
 }
 
 #side-nav ul li:last-child {
@@ -402,20 +524,55 @@ video {
 #side-nav ul li a {
     display: flex;
     align-items: center;
-    padding: .8rem 1rem;
-    color: #666;
-    border-radius: 0 2em 2em 0;
-    transition: .25s
+    padding: 12px 24px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: all .3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    border-left: 3px solid transparent
 }
 
 #side-nav ul li a:hover {
-    color: #007bff;
-    background: rgba(0, 111, 255, .1)
+    background: var(--sidebar-hover);
+    color: #fff;
+    border-left-color: rgba(255, 255, 255, .3)
+}
+
+#side-nav ul li a i {
+    margin-right: 12px;
+    font-size: 16px;
+    width: 20px;
+    text-align: center
 }
 
 #side-nav ul li.active a {
-    background: var(--bs-primary);
-    color: #fff
+    background: var(--sidebar-active);
+    color: #fff;
+    border-left-color: #fff
+}
+
+#side-nav ul li.active a:hover {
+    background: var(--sidebar-active)
+}
+
+#side-nav ul p {
+    color: rgba(255, 255, 255, .6);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 1.5rem 0 .5rem 24px
+}
+
+#side-nav ul p::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: rgba(255, 255, 255, .3);
+    margin-right: 8px;
+    vertical-align: middle
 }
 
 #side-nav.toggle-active {

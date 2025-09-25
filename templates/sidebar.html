@@ -3,17 +3,18 @@
 
 <div id="side-nav">
 	<div class="main-menu">
-		<div class="top-side text-center py-4" style="background-image: url({% static 'img/bg.png' %})">
+		<div class="top-side text-center py-4">
 			<div class="desktop-hide">
 				<div class="toggle-btn" onclick="toggleSidebar()">
 					<i class="fas fa-bars"></i>
 				</div>
 			</div>
-			<a href="/">
-				<img src="{% static 'img/Skwelify1.png' %}" width="210px" alt="Skywelify">
+			<a href="/" class="brand-link">
+				<i class="fas fa-graduation-cap"></i>
+				<span class="brand-text">SKWELIFY</span>
 			</a>
 			<p class="mt-2 small">
-				<mark class="bg-secondary text-light" style="border-radius: 2px; padding: 2px 5px;">
+				<mark>
 					{{ request.user.get_user_role }}
 				</mark>
 			</p>
@@ -107,8 +108,7 @@
 				<a href="{% url 'course_registration' %}"><i class="fas fa-plus"></i>{% trans 'Add' %} &amp; {% trans 'Drop Course' %}</a>
 			</li>
 			{% endif %}
-			<br />
-			<p class="ms-3 text-secondary">&RightArrow; Others</p>
+			<p>{% trans 'Others' %}</p>
 			<li class="{% if request.path == ep %}active{% endif %}">
 				<a href="{% url 'edit_profile' %}"><i class="fas fa-cogs"></i>{% trans 'Account Setting' %}</a>
 			</li>

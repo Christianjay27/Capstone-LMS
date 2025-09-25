@@ -28,18 +28,18 @@
     <div class="row">
         {% for item in items %}
         <div class="col-md-4 mb-4">
-            <div class="card">
-                <div class="card-header-ne d-flex align-items-center">
-                    {% if item.posted_by.institution %}
-                    <img src="{{ item.posted_by.institution.logo.url|default:'#' }}" alt="{{ item.posted_by.institution.name }}" class="college-logo">
-                    {% endif %}
-                    <div>
-                        <div>{{ item.posted_by.institution.name|default:'La Concepcion Collegge' }}</div>
-                        <div class="d-flex align-items-center mt-2">
-                            <span class="{% if item.posted_as == 'News' %}news{% else %}events{% endif %}">
-                                {% if item.posted_as == 'News' %}{% trans 'News' %}{% else %}{% trans 'Events' %}{% endif %}
-                            </span>
-                        </div>
+            <div class="card news-events-container">
+                <div class="card-header-ne d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-2">
+                        {% if item.posted_by.institution %}
+                        <img src="{{ item.posted_by.institution.logo.url|default:'#' }}" alt="{{ item.posted_by.institution.name }}" class="college-logo">
+                        {% endif %}
+                        <div class="institution-name">{{ item.posted_by.institution.name|default:'La Concepcion Collegge' }}</div>
+                    </div>
+                    <div class="tags">
+                        <span class="{% if item.posted_as == 'News' %}news-tag{% else %}events-tag{% endif %}">
+                            {% if item.posted_as == 'News' %}{% trans 'News' %}{% else %}{% trans 'Events' %}{% endif %}
+                        </span>
                     </div>
                     {% if request.user.is_superuser %}
                     <div class="dropstart">
