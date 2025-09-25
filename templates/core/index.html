@@ -27,7 +27,7 @@
     {% if items %}
     <div class="row">
         {% for item in items %}
-        <div class="col-md-4 mb-4">
+        <div class="col-md-6 mb-4">
             <div class="card news-events-container">
                 <div class="card-header-ne d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center gap-2">
@@ -44,7 +44,7 @@
                     {% if request.user.is_superuser %}
                     <div class="dropstart">
                         <button class="btn btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-ellipsis-v text-white"></i>
+                            <i class="fas fa-ellipsis-v text-black"></i>
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{% url 'edit_post' pk=item.id %}"><i

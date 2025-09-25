@@ -4,12 +4,17 @@
   --sidebar-bg: #0d47a1;
   --sidebar-text: #ffffff;
   --sidebar-active: #1565c0;
-  --navbar-bg: #0d47a1;
-  --navbar-text: #ffffff;
+  --navbar-bg: #ffffff;
+  --navbar-text: #0b1a33;
   --search-bg: #ffffff;
   --search-text: #333333;
   --search-placeholder: #666666;
-  --main-bg: #ffffff;
+  --main-bg: #f0f4ff;
+  /* page background gradient base */
+  --container-bg: #ffffff;
+  /* inner container background */
+  --container-max: 1900px;
+  /* centered app container width */
   --card-bg: #ffffff;
   --sidebar-title: #ffffff;
   --sidebar-secondary: rgba(255, 255, 255, 0.7);
@@ -19,18 +24,29 @@
 
 /* Main layout adjustments */
 body {
-  background-color: var(--main-bg);
+  background: radial-gradient(1300px 600px at -10% -10%, #0b3d91 0%, #0a3b87 25%, #09326f 45%, #082a5c 65%, #07224a 85%, #061c3d 100%),
+    linear-gradient(180deg, #0a2f68 0%, #0f3e8a 100%);
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  color: #0b1a33;
   font-family: "Rubik", sans-serif;
 }
 
-/* Sidebar styling */
-/* Main layout */
-body {
-  background-color: var(--main-bg);
+/* Wrap everything in an app container (matches screenshot) */
+.app-container {
+  position: relative;
+  max-width: var(--container-max);
+  margin: 32px auto;
+  background: var(--container-bg);
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), 0 8px 18px rgba(0, 0, 0, 0.12);
+  min-height: calc(100vh - 64px);
+  overflow: hidden;
 }
 
+/* Main layout */
 #main-content {
-  background-color: var(--main-bg);
+  background-color: var(--container-bg);
 }
 
 /* Sidebar styling */
@@ -113,15 +129,22 @@ body {
 
 /* Navbar styling */
 #top-navbar {
-  background: var(--navbar-bg);
+  background: #ffffff;
   color: var(--navbar-text);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   padding: 0.75rem 1rem;
   left: 300px;
   z-index: 900;
   position: fixed;
   top: 0;
   right: 0;
+}
+
+/* ensure navbar is visually inside the app container */
+.app-container #top-navbar {
+  right: max(0px, calc((100vw - var(--container-max)) / 2));
+  left: calc(300px + max(0px, calc((100vw - var(--container-max)) / 2)));
 }
 
 #top-navbar .nav-wrapper .toggle-btn {
@@ -169,7 +192,8 @@ body {
 }
 
 /* Icon styling */
-.fas, .fa {
+.fas,
+.fa {
   background-color: transparent;
   display: inline-flex;
   align-items: center;
@@ -212,7 +236,8 @@ body {
 }
 
 /* News & Events styling */
-.news, .events {
+.news,
+.events {
   display: inline-block;
   padding: 0.35rem 0.75rem;
   border-radius: 4px;
@@ -264,8 +289,38 @@ body {
   padding-top: 65px;
 }
 
+/* keep footer area like screenshot */
+.app-container .footer {
+  background: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* align bottom manage bar to container */
+.app-container .manage-wrap {
+  left: calc(300px + max(0px, (100vw - var(--container-max)) / 2));
+  right: max(0px, calc((100vw - var(--container-max)) / 2));
+  bottom: 32px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+}
+
+/* Keep alignment when sidebar toggles */
+.app-container #top-navbar.toggle-active {
+  left: max(0px, calc((100vw - var(--container-max)) / 2));
+}
+
+.app-container .manage-wrap.toggle-active {
+  left: max(0px, calc((100vw - var(--container-max)) / 2));
+}
+
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 600;
   color: #333;
 }
@@ -357,4 +412,51 @@ h3.news-events-title {
 /* Adjust the "Others" text in sidebar */
 #side-nav p.text-secondary {
   color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Place sidebar and navbar inside the centered container */
+.app-container #side-nav {
+  left: max(0px, calc((100vw - var(--container-max)) / 2));
+  top: 32px;
+  bottom: 32px;
+}
+
+.app-container #side-nav.toggle-active {
+  left: calc(max(0px, (100vw - var(--container-max)) / 2) - 300px);
+}
+
+.app-container #top-navbar {
+  top: 32px;
+}
+
+/* Responsive: fall back to full-width on smaller screens */
+@media screen and (max-width: 1150px) {
+  .app-container {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .app-container #top-navbar {
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  .app-container #side-nav {
+    left: -300px;
+    top: 0;
+    bottom: 0;
+  }
+
+  .app-container #side-nav.toggle-active {
+    left: 0;
+  }
+
+  .app-container .manage-wrap {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0;
+  }
 }

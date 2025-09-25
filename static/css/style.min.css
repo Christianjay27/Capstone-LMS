@@ -1110,444 +1110,92 @@ video {
     border-color: #28a745
 }
 
-.fas,
-.fa {
-    font-size: 16px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    background-color: rgba(0, 0, 0, .093);
-    border-radius: 50%
-}
-
-.fas.unstyled,
-.fa.unstyled {
-    background-color: unset;
-    border-radius: unset
-}
-
-.card-count .fas,
-.card-count .fa {
-    font-size: 24px;
-    display: initial;
-    align-items: initial;
-    justify-content: initial;
-    width: initial;
-    height: initial;
-    background-color: initial;
-    border-radius: initial
-}
-
-.card-count {
+/* Styles for news-events container matching the uploaded picture */
+.news-events-container {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center
-}
-
-.card-count .text-right {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-end;
-    gap: 5px
-}
-
-.card-count .text-right h2 {
-    margin: 0
-}
-
-@media(min-width: 800px) {
-    .card-count {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between
-    }
-
-    .card-count .text-right {
-        display: block;
-        text-align: end
-    }
-
-    .card-count .text-right h2 {
-        margin: 0
-    }
-
-    .card-count .fas,
-    .card-count .fa {
-        border-right: 1px solid #ddd
-    }
-
-    .users-count .card-count h3 {
-        border-right: 1px solid #e6e6e6
-    }
-}
-
-.chart-wrap {
-    position: relative;
-    padding: 1rem;
-    transition: .5s;
-    background-color: #fff;
-    border-radius: 10px
-}
-
-.fa-expand-alt {
-    display: none;
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-    padding: .5rem;
-    cursor: pointer;
-    transition: .3s
-}
-
-.fa-expand-alt:hover {
-    background-color: #f1f1f1
-}
-
-.chart-wrap:hover {
-    box-shadow: 0 0 0 1px inset #666
-}
-
-.chart-wrap:hover .fa-expand-alt {
-    display: block
-}
-
-.expand {
-    transform: translateY(100%);
-    position: fixed;
-    bottom: 0;
-    top: 3rem;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 999;
-    flex: 0 0 100%;
-    background-color: #fff;
-    box-shadow: 0 0 0 10000px rgba(0, 0, 0, .5) !important;
-    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5) !important;
-    transform-origin: bottom left;
-    animation: popupAnim forwards alternate .5s ease-in-out;
-    overflow: auto
-}
-
-.expand .fa-expand-alt {
-    display: block
-}
-
-@keyframes popupAnim {
-    from {
-        transform: translateY(100%)
-    }
-
-    to {
-        transform: translateY(0)
-    }
-}
-
-.users-count .card-count {
-    width: 100%;
     height: 100%;
+}
+
+.news-events-container .card-header-ne {
+    padding: 0;
+    margin-bottom: 20px;
+    border-bottom: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff
 }
 
-.users-count .card-count h2 {
-    font-weight: 1000
+.news-events-container .college-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-right: 12px;
+    border-radius: 8px;
 }
 
-.users-count .card-count h3 {
-    flex: 0 0 40%
+.news-events-container .institution-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: #1a1a2e;
 }
 
-.users-count .card-count h3 i {
-    display: inline-flex;
-    width: 60px;
-    height: 60px;
+.news-events-container .tags {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%
+    gap: 10px;
 }
 
-.bg-light-aqua {
-    background-color: rgba(32, 177, 177, .8) !important;
-    box-shadow: 0 0 0 10px rgba(32, 177, 177, .2) !important;
-    color: #fff !important
-}
-
-.bg-light-orange {
-    background-color: rgba(253, 174, 28, .8) !important;
-    box-shadow: 0 0 0 10px rgba(253, 174, 28, .2) !important;
-    color: #fff !important
-}
-
-.bg-light-purple {
-    background-color: rgba(203, 31, 255, .8) !important;
-    box-shadow: 0 0 0 10px rgba(203, 31, 255, .2) !important;
-    color: #fff !important
-}
-
-.bg-light-red {
-    background-color: rgba(255, 19, 157, .8) !important;
-    box-shadow: 0 0 0 10px rgba(255, 19, 157, .2) !important;
-    color: #fff !important
-}
-
-.activities ul {
-    padding-left: .5rem
-}
-
-.activities ul li {
-    list-style-type: disc
-}
-
-.top-side {
-    background-size: cover;
-    background-position: top center
-}
-
-.color-indicator {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 2px
-}
-
-.bg-purple {
-    background-color: #6f42c1
-}
-
-.card-header-ne {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between
-}
-
-.card-header-ne .title {
-    vertical-align: middle
-}
-
-.text-danger {
-    color: red
-}
-
-.user-picture {
-    width: 100px;
-    height: 100px;
-    border: 3px solid #fff;
-    margin-top: -50px;
-    -o-object-fit: cover;
-    object-fit: cover
-}
-
-.dashboard-description strong {
-    font-weight: 600
-}
-
-.card .h5 {
-    font-size: 1.25rem;
-    color: #333;
-    margin-top: 15px;
-    margin-bottom: 15px
-}
-
-.text-danger {
-    color: red
-}
-
-.bg-light-warning {
-    background-color: #fcd96f !important
-}
-
-#progress-main {
-    display: none
-}
-
-.class-item {
-    display: block;
-    border-left: 4px solid #6cbd45;
-    padding: 1rem !important;
-    background: #f8f9fa;
-    border-radius: 3px;
-    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .3);
-    transition: .5s
-}
-
-.class-item:hover {
-    transform: translateX(15px)
-}
-
-.class-item p {
-    padding: 2px;
-    margin: 0;
-    color: #b4b4b4;
-    transition: .5s
-}
-
-.class-item a {
-    padding: 2px;
-    color: #343a40;
-    text-decoration: none;
-    transition: .5s
-}
-
-.login-container {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px
-}
-
-.login-card {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .1);
-    padding: 40px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center
-}
-
-.login-header {
-    margin-bottom: 30px
-}
-
-.login-icon {
-    margin-bottom: 20px
-}
-
-.login-icon i {
-    font-size: 48px;
-    color: #2a5298;
-    background-color: rgba(42, 82, 152, .1);
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center
-}
-
-.login-title {
-    color: #333;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0
-}
-
-.login-input {
-    border: 2px solid #e1e8ed;
-    border-radius: 10px;
-    padding: 15px 20px;
-    font-size: 16px;
-    transition: all .3s ease;
-    background-color: #f8f9fa
-}
-
-.login-input:focus {
-    border-color: #2a5298;
-    background-color: #fff;
-    box-shadow: 0 0 0 3px rgba(42, 82, 152, .1);
-    outline: none
-}
-
-.login-input::placeholder {
-    color: #6c757d;
-    font-size: 14px
-}
-
-.login-btn {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    border: none;
-    border-radius: 10px;
-    padding: 15px 30px;
-    font-size: 16px;
+.news-tag,
+.events-tag {
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 14px;
     font-weight: 600;
     color: #fff;
-    width: 100%;
-    transition: all .3s ease;
-    margin-top: 10px
+    user-select: none;
+    cursor: default;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s ease;
 }
 
-.login-btn:hover {
-    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(42, 82, 152, .3)
+.news-tag {
+    background-color: #3b82f6;
 }
 
-.login-btn:active {
-    transform: translateY(0)
+.events-tag {
+    background-color: #7c3aed;
 }
 
-.login-btn i {
-    margin-right: 8px
+.news-events-container .news-item-title {
+    font-weight: 900;
+    font-size: 24px;
+    color: #1a1a2e;
+    margin-bottom: 16px;
 }
 
-.login-footer {
-    margin-top: 20px
+.news-events-container .news-content {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 24px;
 }
 
-.forgot-password-link {
-    color: #6c757d;
-    text-decoration: none;
+.news-events-container .news-timestamp {
     font-size: 14px;
-    transition: color .3s ease
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
 }
 
-.forgot-password-link:hover {
-    color: #2a5298;
-    text-decoration: underline
-}
-
-.alert {
-    border-radius: 10px;
-    border: none;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    text-align: left
-}
-
-.alert.alert-danger {
-    background-color: #f8d7da;
-    color: #721c24
-}
-
-@media(max-width: 480px) {
-    .login-container {
-        padding: 15px
-    }
-
-    .login-card {
-        padding: 30px 25px
-    }
-
-    .login-icon i {
-        font-size: 40px;
-        width: 70px;
-        height: 70px
-    }
-
-    .login-title {
-        font-size: 20px
-    }
-
-    .login-input {
-        padding: 12px 16px;
-        font-size: 14px
-    }
-
-    .login-btn {
-        padding: 12px 24px;
-        font-size: 14px
-    }
+.news-events-container .news-timestamp i {
+    font-size: 16px;
+    color: #999;
 }
 
 /*# sourceMappingURL=style.min.css.map */
